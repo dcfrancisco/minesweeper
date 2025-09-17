@@ -5,18 +5,11 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 import 'components/components.dart';
-import 'config.dart';
 
 enum PlayState { welcome, playing, gameOver, won }
 
 class MineSweeper extends FlameGame with KeyboardEvents, TapDetector {
-  MineSweeper()
-    : super(
-        camera: CameraComponent.withFixedResolution(
-          width: gameWidth,
-          height: gameHeight,
-        ),
-      );
+  MineSweeper();
 
   late PlayState gameState;
   late List<List<MineTile>> board;
@@ -85,8 +78,10 @@ class MineSweeper extends FlameGame with KeyboardEvents, TapDetector {
           gridX: col,
           gridY: row,
           position: Vector2(
-            col * (MineTile.tileSize + 1) + 50,
-            row * (MineTile.tileSize + 1) + 100,
+            col * (MineTile.tileSize + 2) +
+                (size.x - cols * (MineTile.tileSize + 2)) / 2,
+            row * (MineTile.tileSize + 2) +
+                (size.y - rows * (MineTile.tileSize + 2)) / 2,
           ),
           size: Vector2.all(MineTile.tileSize),
         ),

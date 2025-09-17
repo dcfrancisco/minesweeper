@@ -13,8 +13,8 @@ const minesColors = [
   Color(0xff577590),
 ];
 
-const gameWidth = 820.0;
-const gameHeight = 1600.0;
+const gameWidth = 800.0;
+const gameHeight = 600.0;
 const tileSize = 80.0;
 const gridPadding = 16.0;
 const gridColumns = 10;

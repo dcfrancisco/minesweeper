@@ -23,7 +23,7 @@ class MineTile extends PositionComponent
   bool hasMine = false;
   int adjacentMines = 0;
 
-  static const double tileSize = 32.0;
+  static const double tileSize = 40.0;
 
   // Colors for different number values (classic Minesweeper)
   static const List<Color> numberColors = [
@@ -42,6 +42,13 @@ class MineTile extends PositionComponent
   bool onTapDown(TapDownEvent event) {
     // For now, handle primary tap as left click
     _handleLeftClick();
+    return true;
+  }
+
+  @override
+  bool onLongTapDown(TapDownEvent event) {
+    // Handle long press as right click for mobile-style flagging
+    _handleRightClick();
     return true;
   }
 

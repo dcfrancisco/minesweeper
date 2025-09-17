@@ -9,7 +9,7 @@ class PlayArea extends RectangleComponent with HasGameReference<MineSweeper> {
     : super(
         position: Vector2.zero(),
         size: Vector2(gameWidth, gameHeight),
-        paint: Paint()..color = const Color(0xFF222222),
+        paint: Paint()..color = Colors.grey[300]!,
       );
 
   @override

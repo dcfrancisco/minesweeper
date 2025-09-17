@@ -63,7 +63,7 @@ class _GameAppState extends State<GameApp> {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true, fontFamily: 'PressStart2P'),
       home: Scaffold(
-        backgroundColor: Colors.grey[400],
+        backgroundColor: Colors.grey[300], // Classic Minesweeper background
         body: GestureDetector(
           onSecondaryTap: () {
             // Consume right-clicks at the scaffold level to prevent context menu
@@ -84,15 +84,20 @@ class _GameAppState extends State<GameApp> {
 
                   // Game area
                   Expanded(
-                    child: Listener(
-                      onPointerDown: (event) {
-                        // Handle right-click at the widget level for better macOS support
-                        if (event.buttons == 2) {
-                          // Right mouse button
-                          // This will be handled by individual tiles
-                        }
-                      },
-                      child: GameWidget(game: game),
+                    child: Container(
+                      width: double.infinity,
+                      height: double.infinity,
+                      color: Colors.grey[300], // Game background color
+                      child: Listener(
+                        onPointerDown: (event) {
+                          // Handle right-click at the widget level for better macOS support
+                          if (event.buttons == 2) {
+                            // Right mouse button
+                            // This will be handled by individual tiles
+                          }
+                        },
+                        child: GameWidget(game: game),
+                      ),
                     ),
                   ),
                 ],
